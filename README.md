@@ -1,7 +1,3 @@
-Aqui está o README no molde solicitado, mantendo a parte dos contribuidores:
-
----
-
 # Simulador de Torres de Hanoi
 
 Este projeto é uma aplicação interativa que simula o famoso problema das Torres de Hanoi. Desenvolvida utilizando Next.js, TypeScript e Material-UI, a aplicação permite aos usuários ajustar o número de discos, visualizar as etapas da solução, e explorar a árvore de recursão por trás do algoritmo. O projeto é ideal para estudantes e entusiastas que desejam entender melhor conceitos como recursão e algoritmos de dividir e conquistar.
