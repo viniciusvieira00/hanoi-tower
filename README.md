@@ -65,8 +65,8 @@ A aplicação inclui uma funcionalidade para visualizar a árvore de recursão q
 
 ### Link de Deploy
 
-<!-- Você também pode acessar a aplicação diretamente no link de deploy:
-[hanoi-tower.vercel.app](https://hanoi-tower.vercel.app) -->
+Você também pode acessar a aplicação diretamente no link de deploy:
+[hanoi-tower-one.vercel.app](https://hanoi-tower-one.vercel.app/)
 
 ## Estrutura do Projeto
 
