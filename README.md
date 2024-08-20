@@ -73,7 +73,7 @@ Você também pode acessar a aplicação diretamente no link de deploy:
 
 ## Vídeo
 
-- [Watch the video](https://example.com/path-to-your-video.mp4)
+- [Watch the video](/readme_data/bandicam 2024-08-19 23-31-34-104.mp4)
 
 ## Contribuidores do Projeto
 
