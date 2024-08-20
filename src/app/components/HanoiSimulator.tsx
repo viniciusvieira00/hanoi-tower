@@ -22,6 +22,7 @@ const HanoiSimulator: React.FC = () => {
   const [openHistory, setOpenHistory] = useState(false);
   const [openTree, setOpenTree] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [isSimulationReady, setIsSimulationReady] = useState(false);
 
   const hanoi = (n: number, from: number, to: number, aux: number, moves: Move[]) => {
     if (n === 1) {
@@ -33,7 +34,7 @@ const HanoiSimulator: React.FC = () => {
     hanoi(n - 1, aux, to, from, moves);
   };
 
-  const startSimulation = () => {
+  const prepareSimulation = () => {
     const newMoves: Move[] = [];
     hanoi(numberOfDisks, 0, 2, 1, newMoves);
     setMoves(newMoves);
@@ -43,7 +44,13 @@ const HanoiSimulator: React.FC = () => {
       [],
       []
     ]);
-    animateMoves(newMoves, 1000, 0);
+    setIsSimulationReady(true); // Set simulation ready flag
+  };
+
+  const startSimulation = () => {
+    if (isSimulationReady) {
+      animateMoves(moves, 1000, 0);
+    }
   };
 
   const animateMoves = (moves: Move[], delay: number, startIndex: number) => {
@@ -68,35 +75,15 @@ const HanoiSimulator: React.FC = () => {
     }, delay);
   };
 
-  const handlePause = () => {
-    setIsPaused(prevIsPaused => {
-      if (!prevIsPaused && intervalRef.current) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      } else if (prevIsPaused) {
-        animateMoves(moves, 1000, moveIndex); // Reinicie a animação do ponto onde parou
-      }
-      return !prevIsPaused;
-    });
-  };
-
   const handleRestart = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current); // Clear any running intervals
     setIsPaused(false);
-    setMoveIndex(0);
-    setTowers([
-      Array.from(Array(numberOfDisks).keys()).map(x => x + 1).reverse(),
-      [],
-      []
-    ]);
-    animateMoves(moves, 1000, 0);
+    setIsSimulationReady(false); // Mark simulation as not ready
+    prepareSimulation(); // Prepare simulation without starting it
   };
 
   useEffect(() => {
-    setTowers([
-      Array.from(Array(numberOfDisks).keys()).map(x => x + 1).reverse(),
-      [],
-      []
-    ]);
+    prepareSimulation();
   }, [numberOfDisks]);
 
   return (
@@ -114,9 +101,6 @@ const HanoiSimulator: React.FC = () => {
       <Button variant="contained" color="primary" onClick={startSimulation}>
         Iniciar Simulação
       </Button>
-      {/* <Button variant="contained" color="secondary" onClick={handlePause}>
-        {isPaused ? 'Continuar' : 'Pausar'}
-      </Button> */}
       <Button variant="contained" color="error" onClick={handleRestart}>
         Reiniciar
       </Button>
