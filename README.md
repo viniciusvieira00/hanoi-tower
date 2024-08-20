@@ -71,10 +71,6 @@ Você também pode acessar a aplicação diretamente no link de deploy:
 - `components/Disk.tsx`: Componente para renderizar um disco individual.
 - `components/RecursionTree.tsx`: Componente para visualizar a árvore de recursão.
 
-## Vídeo
-
-- [Watch the video](https://example.com/path-to-your-video.mp4)
-
 ## Contribuidores do Projeto
 
 - [Vinicius Vieira](https://github.com/viniciusvieira00), Matrícula: 190118059

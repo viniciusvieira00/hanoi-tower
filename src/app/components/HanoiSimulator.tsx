@@ -44,7 +44,7 @@ const HanoiSimulator: React.FC = () => {
       [],
       []
     ]);
-    setIsSimulationReady(true);
+    setIsSimulationReady(true); // Set simulation ready flag
   };
 
   const startSimulation = () => {
@@ -76,10 +76,10 @@ const HanoiSimulator: React.FC = () => {
   };
 
   const handleRestart = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
+    if (intervalRef.current) clearInterval(intervalRef.current); // Clear any running intervals
     setIsPaused(false);
-    setIsSimulationReady(false);
-    prepareSimulation();
+    setIsSimulationReady(false); // Mark simulation as not ready
+    prepareSimulation(); // Prepare simulation without starting it
   };
 
   useEffect(() => {
