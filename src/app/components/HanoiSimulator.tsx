@@ -98,18 +98,20 @@ const HanoiSimulator: React.FC = () => {
         max={8}
         valueLabelDisplay="auto"
       />
-      <Button variant="contained" color="primary" onClick={startSimulation}>
-        Iniciar Simulação
-      </Button>
-      <Button variant="contained" color="error" onClick={handleRestart}>
-        Reiniciar
-      </Button>
-      <Button variant="contained" color="info" onClick={() => setOpenHistory(true)}>
-        Mostrar Histórico
-      </Button>
-      <Button variant="contained" color="warning" onClick={() => setOpenTree(true)}>
-        Visualizar Árvore de Recursão
-      </Button>
+      <Box display="flex" justifyContent="center" mb={2}>
+        <Button variant="contained" color="primary" onClick={startSimulation} sx={{ mr: 2 }}>
+          Iniciar Simulação
+        </Button>
+        <Button variant="contained" color="error" onClick={handleRestart} sx={{ mr: 2 }}>
+          Reiniciar
+        </Button>
+        <Button variant="contained" color="info" onClick={() => setOpenHistory(true)} sx={{ mr: 2 }}>
+          Mostrar Histórico
+        </Button>
+        <Button variant="contained" color="warning" onClick={() => setOpenTree(true)}>
+          Visualizar Árvore de Recursão
+        </Button>
+      </Box>
       <Typography variant="h6" align="center" gutterBottom>
         Passo {moveIndex} de {moves.length}
       </Typography>
