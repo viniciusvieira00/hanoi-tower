@@ -15,8 +15,9 @@ const Tower: React.FC<TowerProps> = ({ disks }) => {
       display="flex"
       flexDirection="column-reverse"
       alignItems="center"
-      justifyContent="flex-end"
+      justifyContent="flex-start"  // This ensures disks start from the bottom
       border={1}
+      position="relative"
     >
       {disks.map(disk => (
         <Disk key={disk} size={disk} />
